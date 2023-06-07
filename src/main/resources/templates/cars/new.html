@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Новая машина</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/cars}" th:object="${car}">
+    <label for="name">Введите марку машины: </label>
+    <input type="text" th:field="*{name}" id="name"/>
+    <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</div>
+    <br/>
+    <label for="color">Введите цвет: </label>
+    <input type="text" th:field="*{color}" id="color"/>
+    <div style="color:red" th:if="${#fields.hasErrors('color')}" th:errors="*{color}">Color Error</div>
+    <br/>
+    <label for="yearOfIssue">Введите год выпуска: </label>
+    <input type="text" th:field="*{yearOfIssue}" id="yearOfIssue"/>
+    <div style="color:red" th:if="${#fields.hasErrors('yearOfIssue')}" th:errors="*{yearOfIssue}">YearOfIssue Error</div>
+    <br/>
+    <input type="submit" value="Создать!"/>
+</form>
+
+</body>
+</html>
